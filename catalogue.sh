@@ -28,15 +28,15 @@ else
     echo "you are root user"
 fi #fi means reverse of if, indication of condition end
 
-dnf module disable nodejs -y &>> $LOGFILE
+dnf module disable nodejs -y
 
 VALIDATE $? " Disabling NodeJS"
 
-dnf module enable nodejs:18 -y &>> $LOGFILE
+dnf module enable nodejs:18 -y
 
 VALIDATE $? " Enabling NodeJS:18"
 
-dnf install nodejs -y &>> $LOGFILE
+dnf install nodejs -y
 
 VALIDATE $? " Installing NodeJS:18"
 
@@ -48,28 +48,28 @@ mkdir /app
 
 VALIDATE $? " Creating app Directory"
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
 
 VALIDATE $? " Downloading Catalogue applicatiion"
 
 cd /app
 
-unzip /tmp/catalogue.zip &>> $LOGFILE
+unzip /tmp/catalogue.zip
 
 VALIDATE $? " Unzipping Catalogue "
 
 cd /app
 
-npm install &>> $LOGFILE
+npm install
 
 VALIDATE $? " Installing NPM "
 
 #use absolute path, Because Catalogue.service is there
-cp /home/centos/Roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
+cp /home/centos/Roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service
 
 VALIDATE $? " Copying catalogue service file "
 
-systemctl daemon-reload &>> $LOGFILE
+systemctl daemon-reload
 
 VALIDATE $? " Daemon Reload "
 
