@@ -31,4 +31,4 @@ fi #fi means reverse of if, indication of condition end
 
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 
-VALIDATE $? " Copied MongoDB Repo"
+VALIDATE $? "Copied MongoDB Repo"
