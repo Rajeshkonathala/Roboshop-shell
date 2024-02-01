@@ -89,6 +89,6 @@ dnf install mongodb-org-shell -y
 
 VALIDATE $? " Installing MongoDB Client "
 
-mongo --host mongodb.rajresh.online </app/schema/catalogue.js
+mongo --host 172.31.44.167 </app/schema/catalogue.js
 
 VALIDATE $? " Loading CATALOGUE data into MONGODB "
