@@ -40,38 +40,38 @@ dnf install nodejs -y &>> $LOGFILE
 
 VALIDATE $? " Installing NodeJS:18"
 
-useradd roboshop
+useradd roboshop 
 
-VALIDATE $? " Adding Roboshop"
+VALIDATE $? " Adding Roboshop User "
 
 mkdir /app
 
 VALIDATE $? " Creating app Directory"
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
 
 VALIDATE $? " Downloading Catalogue applicatiion"
 
 cd /app
 
-unzip /tmp/catalogue.zip
+unzip /tmp/catalogue.zip &>> $LOGFILE
 
 VALIDATE $? " Unzipping Catalogue "
 
 cd /app
 
-npm install 
+npm install &>> $LOGFILE
 
 VALIDATE $? " Installing NPM "
 
 #use absolute path, Because Catalogue.service is there
-cp /home/centos/Roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service
+cp /home/centos/Roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
 
 VALIDATE $? " Copying catalogue service file "
 
-systemctl daemon-reload
+systemctl daemon-reload &>> $LOGFILE
 
-VALIDATE $? " Daemon Relode "
+VALIDATE $? " Daemon Reload "
 
 systemctl enable catalogue
 
