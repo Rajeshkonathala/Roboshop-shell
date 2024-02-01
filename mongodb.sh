@@ -36,3 +36,11 @@ VALIDATE $? "Copied MongoDB Repo"
 dnf install mongodb-org -y &>> $LOGFILE
 
 VALIDATE $? "Installing MongoDB"
+
+systemctl enable mongod
+
+VALIDATE $? "Enabling MongoDB"
+
+systemctl start mongod
+
+VALIDATE $? "Starting MongoDB"
