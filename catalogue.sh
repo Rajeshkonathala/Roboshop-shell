@@ -31,7 +31,7 @@ fi #fi means reverse of if, indication of condition end
 
 dnf module disable nodejs -y &>> $LOGFILE
 
-VALIDATE $? " Disabling NodeJS"
+VALIDATE $? " Disabling Current NodeJS"
 
 dnf module enable nodejs:18 -y &>> $LOGFILE
 
@@ -50,7 +50,7 @@ else
     echo -e "Roboshop user already exist $Y SKIPPING $N"
 fi
 
-mkdir /app &>> $LOGFILE
+mkdir -p /app &>> $LOGFILE
 
 VALIDATE $? " Creating app Directory"
 
