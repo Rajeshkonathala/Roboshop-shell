@@ -1,9 +1,0 @@
-# Roboshop-shell
-
-
-# newline
-
-
-# Congi
-
-# ~
